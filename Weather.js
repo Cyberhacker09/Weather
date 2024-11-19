@@ -7,8 +7,7 @@ let windLayer;
 let stormLayer;
 document.getElementById('getWeather').addEventListener('click', function () {
     const city = document.getElementById('city').value.trim();
-    const apiKey = '42e0d6803192b5c8c117628c00a51911';
-
+    const apiKey = 'your_api key';
     if (city === '') {
         alert('Please enter a city name.');
         return;
@@ -22,7 +21,7 @@ document.getElementById('getLocationWeather').addEventListener('click', function
         navigator.geolocation.getCurrentPosition((position) => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-            const apiKey = '42e0d6803192b5c8c117628c00a51911'; 
+            const apiKey = 'Your_api_key'; 
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
             fetchWeather(apiUrl);
             updateMap(lat, lon);
@@ -66,7 +65,7 @@ function updateMap(lat, lon) {
     if (precipitationLayer) map.removeLayer(precipitationLayer);
     if (windLayer) map.removeLayer(windLayer);
     if (stormLayer) map.removeLayer(stormLayer);
-    const apiKey = '42e0d6803192b5c8c117628c00a51911';
+    const apiKey = 'your_api_key';
     precipitationLayer = L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
         attribution: 'Precipitation data © OpenWeatherMap'
     }).addTo(map);
